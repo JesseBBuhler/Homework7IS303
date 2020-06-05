@@ -1,0 +1,121 @@
+<!--
+This program is going to push you to start learning some things on your own. We can help but I want you to put forth the effort, work with your team, and if you get stuck we can try and help.
+ 
+For this program you are going to create the Information Sytems Managed App to Reduce Errors and Enhance Dating (commonly known as ISMAREED - the "E"s are pronounced as a long "E" sound)
+ 
+Create a website similar to: (NOTE: Make sure you scroll this image to see the Heart picture)
+ 
+In order to help you learn how some of this works, please refer to the following web links:
+ 
+https://loading.io/progress/
+ 
+https://www.w3schools.com/graphics/svg_path.asp
+ 
+You will need to include the loading-bar.css file and the loading-bar.js file in your html file. You will also need to download these files and put them in the directory where your html file resides.
+ 
+Read the web links and learn how you can draw a heart and fill the contents. You will also use some CSS. I used the following. You will need to figure out what this does and whether you want to implement it. If you haven't had CSS before, just remember that everything is an object and CSS allows us to specify attributes and values for the object. For example, the first listed below creates a div tag called LoveHeart. You can specify a class on a div to access this CSS and it will describe how the div should look.
+ 
+<div class=LoveHeart>
+   <p id="output"></p>
+</div>
+ 
+So when the browser displays the div it will find the CSS and know what it should look like.
+div.LoveHeart
+
+{
+
+height: 5em;
+
+position: relative
+
+}
+
+ 
+
+div.LoveHeart p
+
+{
+
+margin: 0;
+
+background: white;
+
+color: red;
+
+font-weight: bold;
+
+font-size: 150%;
+
+position: absolute;
+
+top: 50%;
+
+left: 50%;
+
+margin-right: -50%;
+
+transform: translate(-50%, -50%)
+
+}
+
+ 
+Also, I want you to look at the loading-bar.js file. By default the heart will be displayed in a blue color. I want it to be displayed in red. There is a section that starts on line 198 called config. This is creating an object called config and then on the lines 199 through 220, attributes (properties) are created and assigned values. I want you to play around with these until you figure out how you can change the color to red '#FF0000'.
+ 
+If you look at the web link https://loading.io/progress/ you can read about configuration.
+ 
+For this web site, the "love phrase" text input is the word or words you would type in to use as a comparison for the strength of the dating match. For example, I could type in the phrase 'true love' (without quotes)
+ 
+Then the user enters the first full name and then the second full name in the two following input text areas.
+ 
+The system will parse (divide) the love phrase and the first and second names looking for matches of the name characters in the love phrase characters. For example, if the phrase was true love and I entered Greg Anderson and Gina Dalton they system would grab the G from Greg and search the true love phrase. If the character is found then you add 1 to the count. Continue doing this for all of the characters in the names comparing it to the love phrase (NOTE: I would suggest removing any spaces in the phrase or names before comparing).
+ 
+After you have a total for the number of times the name characters showed up in the love phrase you will look at the check boxes to see if they are checked. 
+ 
+You will need to have a variable called iFactor and set it to the value of 1. This variable will be the number you use in the following expression:
+ 
+iPower = Math.ceil(((iLoveCount / sLovePhrase.length) * 22) * iFactor);
+
+ 
+
+Where iLoveCount is the number of times the characters were present in the love phrase, sLovePhrase was the phrase entered in the text box, and iFactor is the multplying number. 
+
+You start with iFactor = 1 but then for each checkbox checked you add .25 to the iFactor. For the last checkbox "We will remember God" you will add .5 if checked.
+
+When you click on the Click Me button you will perform the calculations. I want a function that performs the parsing of the name(s) and the love phrase. Make sure that you check for upper case or lower case when comparing. IOW, choose either upper or lower and force all characters to that value.
+ 
+In the LoadingBar.js website take a look at:
+
+  var bar1 = new ldBar("#myItem1");
+  var bar2 = document.getElementById('myItem1').ldBar;
+  bar1.set(60);
+ 
+This will draw the bars in the heart. This should be in a function called drawBar which receives a numeric value and is used when setting the display to be drawn:
+ 
+bar1.set(some value);
+ 
+Then the heart should be filled in based upon the number you calculated and drawn. 
+ 
+Depending on the value, you will dynamically display a message under the heart. 
+ 
+# >= 100 ... Perfect Marriage
+# >= 85 ... Get Married!
+# >= 70 ... It might work
+otherwise ... Keep looking!
+ 
+For example: (NOTE: Scroll to the right to see the heart image and message)
+ 
+
+ 
+If you want, you can also hardcode an expression which always equals 100 and the Perfect Marriage quote (have fun with this).
+ 
+If the user clicks on the Reset button then clear out all inputs, check boxes, set the image to 0% and clear the message. Also set focus to the Love Phrase input.
+ 
+NOTE: Be careful if you name the function reset. It might be fun to try, and I would suggest you do so, and then see if it steps through this function in the debugger or if it ever calls that function.
+ 
+This is a group project. If you don't help then you don't get to submit the homework. Only 1 per group is needed but in the comments put everyone's name that honestly worked on the project.
+ 
+Help each other out. Google often. Learn how to learn and find answers.
+ 
+Have fun with this!
+
+-->
