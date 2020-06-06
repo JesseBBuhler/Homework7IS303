@@ -30,10 +30,14 @@ You can specify a class on a div to access this CSS and it will describe how the
 </head>
 <body>
   <style>
-    
+    #heartImg
+    {
+      height: 400px;
+      display: block;
+    }
   </style>
   <h2 id="intro">Welcome to IS-MAREED!!</h2>
-  <h4>the BYU Information System's Dating Site</h4>
+  <h4>The BYU Information System's Dating Site</h4>
   <form>
     <label for="lovePhrase">What is the love phrase:</label>
     <input type="text" id="lovePhrase">
@@ -43,7 +47,7 @@ You can specify a class on a div to access this CSS and it will describe how the
     <input type="text" id="name1">
     <br><br>
 
-    <label for="name2">Enter the second person's first and lasst name:</label>
+    <label for="name2">Enter the second person's first and last name:</label>
     <input type="text" id="name2">
     <br><br>
 
@@ -74,7 +78,7 @@ You can specify a class on a div to access this CSS and it will describe how the
   <br>
 
   <div class="LoveHeart">
-    <svg>
+    <svg id="heartImg">
       <path fill="none" stroke="#ed2024" d="
       M90.5,23.2c0-12.5-10.2-22.7-22.7-22.7
       c-13.6,0-20.9,8.6-22.3,13.8C44.3,8.9,
