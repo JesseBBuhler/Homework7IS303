@@ -104,14 +104,25 @@ You can specify a class on a div to access this CSS and it will describe how the
       //Not necessary; just making sure the function calls worked!
       alert(lovePhrase + fullName1 + fullName2);
 
+      //split springs into arrays
       var lovePhraseArray = Array.from(lovePhrase);
-      var fullName1Array = Array.from(fullName1);
-      var fullName2Array = Array.from(fullName2);
+      var fullNamesArray = Array.from(fullName1 + fullName2);
 
+      //loop to count the lovePower
+      var lovePower = 0;
       for (i = 0; i < lovePhraseArray.length; i++)
       {
-        
+        for (j = 0; j < fullNamesArray.length; j++)
+        {
+          if (fullNamesArray[j] === lovePhraseArray[i])
+          {
+            lovePower = lovePower + 1;
+          }
+        }
       }
+
+      //Just to see if the lovePower was incrementing correctly
+      alert(lovePower);
 
     }
 
