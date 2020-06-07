@@ -88,6 +88,44 @@ You can specify a class on a div to access this CSS and it will describe how the
     </svg>
     <p id="output"></p>
   </div>
+
+  <script>
+    
+    function calculate()
+    {
+      var lovePhrase = document.getElementById("lovePhrase").value;
+      var fullName1 = document.getElementById("name1").value;
+      var fullName2 = document.getElementById("name2").value;
+
+      lovePhrase = prepString(lovePhrase);
+      fullName1 = prepString(fullName1);
+      fullName2 = prepString(fullName2);
+
+      //Not necessary; just making sure the function calls worked!
+      alert(lovePhrase + fullName1 + fullName2);
+
+
+    }
+
+    //function for converting the user inputs to lowercase and removing all blank spaces
+    function prepString(stringInput)
+    {
+      stringInput = stringInput.toLowerCase().trim();
+
+      var blankSpace;
+      blankSpace = stringInput.indexOf(" ");
+      while (blankSpace != -1)
+      {
+        firstHalf = stringInput.slice(0,blankSpace);
+        lastHalf = stringInput.substring(blankSpace + 1);
+        stringInput = firstHalf + lastHalf;
+        blankSpace = stringInput.indexOf(" ");
+      }
+      return stringInput;
+    }
+
+  </script>
+
 </body>
 </html>
  
