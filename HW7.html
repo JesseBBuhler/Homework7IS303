@@ -96,6 +96,8 @@ You can specify a class on a div to access this CSS and it will describe how the
       var lovePhrase = document.getElementById("lovePhrase").value;
       var fullName1 = document.getElementById("name1").value;
       var fullName2 = document.getElementById("name2").value;
+      var factor = 1;
+      var iPower;
 
       lovePhrase = prepString(lovePhrase);
       fullName1 = prepString(fullName1);
@@ -105,6 +107,7 @@ You can specify a class on a div to access this CSS and it will describe how the
       alert(lovePhrase + fullName1 + fullName2);
 
       //split springs into arrays
+  
       var lovePhraseArray = Array.from(lovePhrase);
       var fullNamesArray = Array.from(fullName1 + fullName2);
 
@@ -124,6 +127,30 @@ You can specify a class on a div to access this CSS and it will describe how the
       //Just to see if the lovePower was incrementing correctly
       alert(lovePower);
 
+      //Check to see what was checked... add .5 if the rememberGod is checked
+      if (document.getElementById("communicate").checked == true){
+         factor = factor + .25;
+      }
+      if (document.getElementById("selfish").checked == true){
+         factor = factor + .25;
+      }
+      if (document.getElementById("serveEachOther").checked == true){
+         factor = factor + .25;
+      }
+      if (document.getElementById("bestFriend").checked == true){
+         factor = factor + .25;
+      }
+      if (document.getElementById("rememberGod").checked == true){
+         factor = factor + .5;
+      }
+      //Test to make sure this is calculating correctly
+      alert(factor);
+
+      //SOMEONE DOUBLE CHECK THIS The instructions were a bit confusing but im pretty sure I put this in
+      //the right place
+
+      iPower = Math.ceil(((lovePower / lovePhraseArray.length)*22)*factor);
+      
     }
 
     //function for converting the user inputs to lowercase and removing all blank spaces
