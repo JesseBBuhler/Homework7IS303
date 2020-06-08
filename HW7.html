@@ -26,18 +26,44 @@ You can specify a class on a div to access this CSS and it will describe how the
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+  <title>IS303-HW7</title>
   <style>
+    .gridContainer
+    {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      grid-template-rows: auto auto auto auto;
+    }
+
+    .headline
+    {
+      grid-row: 1;
+      grid-column: 1 / 4;
+      justify-content: center;
+    }
+
+    .LoveHeart
+    {
+      grid-row: 4;
+    }
+
+    form
+    {
+      grid-row: 2 / 4;
+    }
     /*#heartImg
     {
       height: 400px;
       display: block;
     }*/
   </style>
-  <h2 id="intro">Welcome to IS-MAREED!!</h2>
-  <h4>The BYU Information System's Dating Site</h4>
+</head>
+<body class="gridContainer">
+  <div class="headline">
+    <h2 id="intro">Welcome to IS-MAREED!!</h2>
+    <h4>The BYU Information System's Dating Site</h4>
+  </div>
+  
   <form>
     <label for="lovePhrase">What is the love phrase:</label>
     <input type="text" id="lovePhrase">
