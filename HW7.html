@@ -28,8 +28,9 @@ You can specify a class on a div to access this CSS and it will describe how the
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IS303-HW7</title>
 
-  <script src="loading-bar.js"></script>
-  <style src="loading-bar.css"></style>
+  
+  <link rel="stylesheet" type="text/css" href="loading-bar.css" />
+  <script type="text/javascript" src="loading-bar.js"></script>
 
   <style>
     .gridContainer
@@ -63,6 +64,17 @@ You can specify a class on a div to access this CSS and it will describe how the
       height: 400px;
       display: block;
     }*/
+
+    .ldBar
+    {
+      width: 80% !important;
+      height: 80% !important;
+    }
+
+    .label-center
+    {
+      font-weight: bold;
+    }
   </style>
 </head>
 <body class="gridContainer">
@@ -110,15 +122,22 @@ You can specify a class on a div to access this CSS and it will describe how the
   <br>
   <br>
 
-  <div class="LoveHeart">
-    <svg id="heartImg"  height="250" width="280" viewbox="-5 25 100 30">
+  <!--Heart loading bar-->
+  <div id="heartDiv" class="LoveHeart label-center" data-path="M90.5,23.2c0-12.5-10.2-22.7-22.7-22.7
+  c-13.6,0-20.9,8.6-22.3,13.8C44.3,8.9,
+  35.1,0.5,23.2,0.5C10.7,0.5,0.5,10.7,
+  0.5,23.2c0,22.2,36.5,45.3,45,55.9
+  C53.5,67.3,90.5,46.3,90.5,23.2z" data-type="fill"
+  >
+    <!--incase we want to experiment with a normal svg tag...-->
+    <!--<svg id="heartImg" height="250" width="280" viewbox="-5 25 100 30">
       <path fill="none" stroke="#ed2024" d="
       M90.5,23.2c0-12.5-10.2-22.7-22.7-22.7
       c-13.6,0-20.9,8.6-22.3,13.8C44.3,8.9,
       35.1,0.5,23.2,0.5C10.7,0.5,0.5,10.7,
       0.5,23.2c0,22.2,36.5,45.3,45,55.9
       C53.5,67.3,90.5,46.3,90.5,23.2z"/>
-    </svg>
+    </svg>-->
     <p id="output"></p>
   </div>
 
@@ -184,6 +203,8 @@ You can specify a class on a div to access this CSS and it will describe how the
 
       iPower = Math.ceil(((lovePower / lovePhraseArray.length)*22)*factor);
       
+      //Zach added this to connect the loading bar to the results in the calculations
+      drawBar(iPower);
     }
 
     //function for converting the user inputs to lowercase and removing all blank spaces
@@ -217,11 +238,12 @@ You can specify a class on a div to access this CSS and it will describe how the
       document.getElementById("lovePhrase").focus();
     }
 
+    //This function sets the loading percent for the heart
+    //iPower is the resulting raw number from the calculations
     function drawBar (iPower)
     {
-      var bar1 = new ldBar("#myItem1");
-      var bar2 = document.getElementById('myItem1').ldBar; 
-      bar1.set(60);
+      var bar1 = new ldBar(".LoveHeart");
+      bar1.set(iPower);
     }
 
   </script>
