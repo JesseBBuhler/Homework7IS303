@@ -150,13 +150,14 @@ You can specify a class on a div to access this CSS and it will describe how the
       var fullName2 = document.getElementById("name2").value;
       var factor = 1;
       var iPower;
+      var bar1;
 
       lovePhrase = prepString(lovePhrase);
       fullName1 = prepString(fullName1);
       fullName2 = prepString(fullName2);
 
       //Not necessary; just making sure the function calls worked!
-      alert(lovePhrase + fullName1 + fullName2);
+      //alert(lovePhrase + fullName1 + fullName2);
 
       //split springs into arrays
   
@@ -177,7 +178,7 @@ You can specify a class on a div to access this CSS and it will describe how the
       }
 
       //Just to see if the lovePower was incrementing correctly
-      alert(lovePower);
+      //alert(lovePower);
 
       //Check to see what was checked... add .5 if the rememberGod is checked
       if (document.getElementById("communicate").checked == true){
@@ -196,7 +197,7 @@ You can specify a class on a div to access this CSS and it will describe how the
          factor = factor + .5;
       }
       //Test to make sure this is calculating correctly
-      alert(factor);
+      //alert(factor);
 
       //SOMEONE DOUBLE CHECK THIS The instructions were a bit confusing but im pretty sure I put this in
       //the right place
@@ -234,6 +235,7 @@ You can specify a class on a div to access this CSS and it will describe how the
       document.getElementById("serveEachOther").checked = false;
       document.getElementById("bestFriend").checked = false;
       document.getElementById("rememberGod").checked = false;
+      bar1.set(0);
       //WE STILL NEED TO RESET THE HEART ONCE THAT GETS WORKED OUT
       document.getElementById("lovePhrase").focus();
     }
@@ -242,7 +244,7 @@ You can specify a class on a div to access this CSS and it will describe how the
     //iPower is the resulting raw number from the calculations
     function drawBar (iPower)
     {
-      var bar1 = new ldBar(".LoveHeart");
+      bar1 = new ldBar(".LoveHeart");
       bar1.set(iPower);
     }
 
