@@ -27,6 +27,10 @@ You can specify a class on a div to access this CSS and it will describe how the
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IS303-HW7</title>
+
+  <script src="loading-bar.js"></script>
+  <style src="loading-bar.css"></style>
+
   <style>
     .gridContainer
     {
@@ -208,6 +212,13 @@ You can specify a class on a div to access this CSS and it will describe how the
       document.getElementById("rememberGod").checked = false;
       //WE STILL NEED TO RESET THE HEART ONCE THAT GETS WORKED OUT
       document.getElementById("lovePhrase").focus();
+    }
+
+    function drawBar (iPower)
+    {
+      var bar1 = new ldBar("#myItem1");
+      var bar2 = document.getElementById('myItem1').ldBar; 
+      bar1.set(60);
     }
 
   </script>
