@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <!--
-This program is going to push you to start learning some things on your own. We can help but I want you to put forth the effort, work with your team, and if you get stuck we can try and help.
- 
-For this program you are going to create the Information Sytems Managed App to Reduce Errors and Enhance Dating (commonly known as ISMAREED - the "E"s are pronounced as a long "E" sound)
- 
-Create a website similar to: (NOTE: Make sure you scroll this image to see the Heart picture)
- 
-In order to help you learn how some of this works, please refer to the following web links:
- 
-https://loading.io/progress/
- 
-https://www.w3schools.com/graphics/svg_path.asp
- 
-You will need to include the loading-bar.css file and the loading-bar.js file in your html file. 
-You will also need to download these files and put them in the directory where your html file resides.
- 
-Read the web links and learn how you can draw a heart and fill the contents. You will also use some CSS. 
-I used the following. You will need to figure out what this does and whether you want to implement it. 
-If you haven't had CSS before, just remember that everything is an object and CSS allows us to specify 
-attributes and values for the object. For example, the first listed below creates a div tag called LoveHeart. 
-You can specify a class on a div to access this CSS and it will describe how the div should look.
+  HW 7
+  Section 2 (Hilton)
+  Jarod Jones
+  Joshua Card
+  Jesse Brayden Buhler
+  Shannon Murray
+  Brita Szymanski
+  Zachary Sterling
+-->
+
+<!-- 
+  This program determines whether or not two people are compatible.
+  In order to do this, users go through, enter their names, their love phrase, and 
+  then check boxes indicating what their relationship will be like. 
+  Once the program has this information, a heart appears and indicates the compatability
+  percentage along with a message under the heart indicating the couple's next step.
 -->
 
 <html lang="en">
@@ -83,7 +79,7 @@ You can specify a class on a div to access this CSS and it will describe how the
     <h2 id="intro">Welcome to IS-MAREED!!</h2>
     <h4>The BYU Information System's Dating Site</h4>
   </div>
-  
+  <!--Here is the form that captures user inputs-->
   <form>
     <label for="lovePhrase">What is the love phrase:</label>
     <input type="text" id="lovePhrase">
@@ -116,7 +112,7 @@ You can specify a class on a div to access this CSS and it will describe how the
     <input type="checkbox" id="rememberGod">
     <label for="rememberGod">We will remember God</label>
     <br><br>
-
+    <!--When the buttons are clicked, call the appropriate function-->
     <input type="button" value="Click me" onclick="calculate()">
     <input type="button" value="Reset" onclick="clearData()">
   </form>
@@ -130,6 +126,7 @@ You can specify a class on a div to access this CSS and it will describe how the
   0.5,23.2c0,22.2,36.5,45.3,45,55.9
   C53.5,67.3,90.5,46.3,90.5,23.2z" data-type="fill"
   >
+    <!--Can this be deleted?-->
     <!--incase we want to experiment with a normal svg tag...-->
     <!--<svg id="heartImg" height="250" width="280" viewbox="-5 25 100 30">
       <path fill="none" stroke="#ed2024" d="
@@ -139,6 +136,7 @@ You can specify a class on a div to access this CSS and it will describe how the
       0.5,23.2c0,22.2,36.5,45.3,45,55.9
       C53.5,67.3,90.5,46.3,90.5,23.2z"/>
     </svg>-->
+
     <p id="output"></p>
   </div>
 
@@ -146,6 +144,7 @@ You can specify a class on a div to access this CSS and it will describe how the
     
     function calculate()
     {
+      //Declare variables and initialize as neccessary
       var lovePhrase = document.getElementById("lovePhrase").value;
       var fullName1 = document.getElementById("name1").value;
       var fullName2 = document.getElementById("name2").value;
@@ -153,15 +152,12 @@ You can specify a class on a div to access this CSS and it will describe how the
       var iPower;
       var bar1;
 
+      //Remove all spaces, and convert to lowercase by calling prepString
       lovePhrase = prepString(lovePhrase);
       fullName1 = prepString(fullName1);
       fullName2 = prepString(fullName2);
 
-      //Not necessary; just making sure the function calls worked!
-      //alert(lovePhrase + fullName1 + fullName2);
-
-      //split springs into arrays
-  
+      //Split strings into arrays
       var lovePhraseArray = Array.from(lovePhrase);
       var fullNamesArray = Array.from(fullName1 + fullName2);
 
@@ -178,10 +174,7 @@ You can specify a class on a div to access this CSS and it will describe how the
         }
       }
 
-      //Just to see if the lovePower was incrementing correctly
-      //alert(lovePower);
-
-      //Check to see what was checked... add .5 if the rememberGod is checked
+      //Determine the factor variable by checking which boxes the user checked
       if (document.getElementById("communicate").checked == true){
          factor = factor + .25;
       }
@@ -197,26 +190,24 @@ You can specify a class on a div to access this CSS and it will describe how the
       if (document.getElementById("rememberGod").checked == true){
          factor = factor + .5;
       }
-      //Test to make sure this is calculating correctly
-      //alert(factor);
-
-      //SOMEONE DOUBLE CHECK THIS The instructions were a bit confusing but im pretty sure I put this in
-      //the right place
-
+      
+      //Calculate iPower
       iPower = Math.ceil(((lovePower / lovePhraseArray.length)*22)*factor);
       
-      //Zach added this to connect the loading bar to the results in the calculations
+      //Connect the loading bar to the results in the calculations
       drawBar(iPower);
 
       //Displays message
       displayMessage(iPower);
     }
 
-    //function for converting the user inputs to lowercase and removing all blank spaces
+    //Function to remove all blank spaces and convert to lowercase
     function prepString(stringInput)
     {
+      //convert to lowercase and remove excess spaces on the front and back
       stringInput = stringInput.toLowerCase().trim();
 
+      //remove any spaces in the actual string itself
       var blankSpace;
       blankSpace = stringInput.indexOf(" ");
       while (blankSpace != -1)
@@ -229,6 +220,7 @@ You can specify a class on a div to access this CSS and it will describe how the
       return stringInput;
     }
 
+    //Function that clears/resets all data
     function clearData(){
       document.getElementById("lovePhrase").value = "";
       document.getElementById("name1").value = "";
@@ -240,7 +232,6 @@ You can specify a class on a div to access this CSS and it will describe how the
       document.getElementById("bestFriend").checked = false;
       document.getElementById("rememberGod").checked = false;
       bar1.set(0);
-      //WE STILL NEED TO RESET THE HEART ONCE THAT GETS WORKED OUT
       document.getElementById("lovePhrase").focus();
     }
 
@@ -252,6 +243,7 @@ You can specify a class on a div to access this CSS and it will describe how the
       bar1.set(iPower);
     }
 
+    //Display the correct message depending on iPower
     function displayMessage (iPower){
     if (iPower >= 100){
       document.getElementById("output").innerHTML = "True Love!";
