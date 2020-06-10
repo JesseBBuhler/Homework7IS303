@@ -33,6 +33,7 @@ You can specify a class on a div to access this CSS and it will describe how the
   <script type="text/javascript" src="loading-bar.js"></script>
 
   <style>
+
     .gridContainer
     {
       display: grid;
@@ -206,6 +207,9 @@ You can specify a class on a div to access this CSS and it will describe how the
       
       //Zach added this to connect the loading bar to the results in the calculations
       drawBar(iPower);
+
+      //Displays message
+      displayMessage(iPower);
     }
 
     //function for converting the user inputs to lowercase and removing all blank spaces
@@ -246,6 +250,18 @@ You can specify a class on a div to access this CSS and it will describe how the
     {
       bar1 = new ldBar(".LoveHeart");
       bar1.set(iPower);
+    }
+
+    function displayMessage (iPower){
+    if (iPower >= 100){
+      document.getElementById("output").innerHTML = "True Love!";
+    } else if (iPower >= 85){
+      document.getElementById("output").innerHTML = "Get Married!";
+    } else if (iPower >= 70){
+      document.getElementById("output").innerHTML = "It might work.";
+    } else {
+      document.getElementById("output").innerHTML = "Keep looking.";
+    }
     }
 
   </script>
