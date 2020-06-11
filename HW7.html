@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   HW 7
-  Section 2 (Hilton)
+  IS303 Section 2 (Hilton)
   Jarod Jones
   Joshua Card
   Jesse Brayden Buhler
@@ -24,7 +24,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IS303-HW7</title>
 
-  
   <link rel="stylesheet" type="text/css" href="loading-bar.css" />
   <script type="text/javascript" src="loading-bar.js"></script>
 
@@ -86,7 +85,6 @@
     input{
       margin-right: 20px;
       margin-left: 20px;
-      
     }
 
     .LoveHeart
@@ -94,8 +92,6 @@
       grid-row: 2;
       grid-column: 2;
       text-align: center;
-      
-      
     }
 
 
@@ -127,14 +123,20 @@
     {
       color: white;
       margin-top: 27px;
+      position: absolute;
+      bottom: 15%;
+      left: 40%;
     }
   </style>
 </head>
 <body class="gridContainer">
+
+  <!--Top Intro Text-->
   <div class="headline">
     <h2 id="intro">Welcome to IS-MAREED!!</h2>
     <h4 class="subheading">The BYU Information System's Dating Site</h4>
   </div>
+
   <!--Here is the form that captures user inputs-->
   <form>
     <h4>Enter your Information!</h4>
@@ -174,6 +176,7 @@
     <input type="checkbox" id="rememberGod">
     <label for="rememberGod">We will remember God</label>
     <br><br>
+
     <!--When the buttons are clicked, call the appropriate function-->
     <input type="button" value="Click me" onclick="calculate()">
     <input type="button" value="Reset" onclick="clearData()">
@@ -182,18 +185,20 @@
   <br>
 
   <!--Heart loading bar-->
-  <div id="heartDiv" class="ldBar LoveHeart label-center" data-path="M90.5,23.2c0-12.5-10.2-22.7-22.7-22.7
+  <div id="heartDiv" class="ldBar LoveHeart label-center"
+  data-path="M90.5,23.2c0-12.5-10.2-22.7-22.7-22.7
   c-13.6,0-20.9,8.6-22.3,13.8C44.3,8.9,
   35.1,0.5,23.2,0.5C10.7,0.5,0.5,10.7,
   0.5,23.2c0,22.2,36.5,45.3,45,55.9
-  C53.5,67.3,90.5,46.3,90.5,23.2z" data-type="fill" 
-  >
+  C53.5,67.3,90.5,46.3,90.5,23.2z" data-type="fill">
 
+    <!--Output text that tells how compatible two people are-->
     <p id="output"></p>
   </div>
 
   <script>
     
+    //Function that calculates inputs to find out how compatible two people are
     function calculate()
     {
       //Declare variables and initialize as neccessary
@@ -201,7 +206,7 @@
       var fullName1 = document.getElementById("name1").value;
       var fullName2 = document.getElementById("name2").value;
       var factor = 1;
-      var iPower;
+      var iPower = 0;
       var bar1;
 
       //Remove all spaces, and convert to lowercase by calling prepString
@@ -249,7 +254,7 @@
       //Connect the loading bar to the results in the calculations
       drawBar(iPower);
 
-      //Displays message
+      //Displays message about how compatible two people are
       displayMessage(iPower);
     }
 
@@ -297,16 +302,17 @@
     }
 
     //Display the correct message depending on iPower
-    function displayMessage (iPower){
-    if (iPower >= 100){
-      document.getElementById("output").innerHTML = "Perfect Marriage";
-    } else if (iPower >= 85){
-      document.getElementById("output").innerHTML = "Get Married!";
-    } else if (iPower >= 70){
-      document.getElementById("output").innerHTML = "It might work.";
-    } else {
-      document.getElementById("output").innerHTML = "Keep looking.";
-    }
+    function displayMessage (iPower)
+    {
+      if (iPower >= 100){
+        document.getElementById("output").innerHTML = "Perfect Marriage";
+      } else if (iPower >= 85){
+        document.getElementById("output").innerHTML = "Get Married!";
+      } else if (iPower >= 70){
+        document.getElementById("output").innerHTML = "It might work";
+      } else {
+        document.getElementById("output").innerHTML = "Keep looking";
+      }
     }
 
   </script>
